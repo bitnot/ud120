@@ -1,0 +1,41 @@
+name: ud120
+channels:
+  - defaults
+  - https://conda.anaconda.org/conda-forge/linux-64
+  - conda-forge
+dependencies:
+  - ca-certificates=2020.6.24
+  - certifi=2020.6.20
+  - libcxx=10.0.0
+  - libedit=3.1.20191231
+  - libffi=3.3
+  - ncurses=6.2
+  - openssl=1.1.1g
+  - pip=20.1.1
+  - python=3.8.3
+  - readline=8.0
+  - setuptools=49.2.0
+  - sqlite=3.32.3
+  - tk=8.6.10
+  - wheel=0.34.2
+  - xz=5.2.5
+  - zlib=1.2.11
+  - pip:
+    - 2to3==1.0
+    - chardet==3.0.4
+    - cycler==0.10.0
+    - idna==2.10
+    - joblib==0.16.0
+    - kiwisolver==1.2.0
+    - matplotlib==3.3.0
+    - numpy==1.19.0
+    - pillow==7.2.0
+    - pyparsing==2.4.7
+    - python-dateutil==2.8.1
+    - requests==2.24.0
+    - scikit-learn==0.23.1
+    - scipy==1.5.1
+    - six==1.15.0
+    - sklearn==0.0
+    - threadpoolctl==2.1.0
+    - urllib3==1.25.9
