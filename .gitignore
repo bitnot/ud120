@@ -130,3 +130,5 @@ dmypy.json
 .vscode
 test.png
 ud120.code-workspace
+
+data/

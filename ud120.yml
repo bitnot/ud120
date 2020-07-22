@@ -39,3 +39,4 @@ dependencies:
     - sklearn==0.0
     - threadpoolctl==2.1.0
     - urllib3==1.25.9
+    - nltk==3.5
