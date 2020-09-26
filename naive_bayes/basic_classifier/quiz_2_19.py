@@ -7,9 +7,11 @@
     boundary found in the lesson video, and make a plot that
     visually shows the decision boundary """
 
+import sys
+sys.path.insert(0,'../../lib')
 
-from lib.prep_terrain_data import makeTerrainData
-from lib.class_vis import prettyPicture, output_image
+from prep_terrain_data import makeTerrainData
+from class_vis import prettyPicture, output_image
 from ClassifyNB import classify
 
 import numpy as np

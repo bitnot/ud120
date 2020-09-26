@@ -1,9 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pylab as pl
+import sys
+sys.path.insert(0,'../../lib')
 
-from lib.class_vis import prettyPicture
-from lib.prep_terrain_data import makeTerrainData
+from class_vis import prettyPicture
+from prep_terrain_data import makeTerrainData
 from classify import NBAccuracy
 
 

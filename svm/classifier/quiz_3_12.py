@@ -4,9 +4,10 @@ Lesson 3 Quiz 12
 from sklearn.metrics import accuracy_score
 from sklearn.svm import SVC
 import sys
+sys.path.insert(0,'../../lib')
 
-from lib.class_vis import prettyPicture, output_image
-from lib.prep_terrain_data import makeTerrainData
+from class_vis import prettyPicture, output_image
+from prep_terrain_data import makeTerrainData
 
 import matplotlib.pyplot as plt
 import copy
