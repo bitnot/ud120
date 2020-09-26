@@ -25,11 +25,9 @@ clf = classify(features_train, labels_train)
 
 
 # store your predictions in a list named pred
-pred = clf.predict(features_test)
-
-
-acc = accuracy_score(pred, labels_test)
-
+# pred = clf.predict(features_test)
+# acc = accuracy_score(pred, labels_test)
+acc = clf.score(features_test, labels_test)
 
 def submitAccuracy():
     return acc
