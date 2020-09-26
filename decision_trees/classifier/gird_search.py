@@ -11,39 +11,45 @@ from prep_terrain_data import makeTerrainData
 import matplotlib.pyplot as plt
 import numpy as np
 import pylab as pl
-from sklearn.metrics import accuracy_score
+
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import GridSearchCV
+from sklearn.calibration import CalibratedClassifierCV
 
 
 features_train, labels_train, features_test, labels_test = makeTerrainData()
 
-def classify(features_train, labels_train):
-    from sklearn.tree import DecisionTreeClassifier
-    clf = DecisionTreeClassifier(
-                 criterion="gini",
-                 splitter="best",
-                 max_depth=None,
-                 min_samples_split=2,
-                 min_samples_leaf=1,
+tree=DecisionTreeClassifier(
+                #  criterion="gini",
+                #  splitter="best",
+                #  max_depth=None,
+                #  min_samples_split=2,
+                #  min_samples_leaf=1,
                  min_weight_fraction_leaf=0.,
                  max_features=None,
                  #  random_state=None,
                  random_state=0,
-                 max_leaf_nodes=None,
+                #  max_leaf_nodes=None,
                  min_impurity_decrease=0.,
                  min_impurity_split=None,
                  class_weight=None,
                  presort='deprecated',
                  ccp_alpha=0.0)
-    clf.fit(features_train, labels_train, sample_weight=None, check_input=True, X_idx_sorted=None)
-    return clf
+param_grid = {
+    'criterion': ['gini', 'entropy'],
+    'splitter': ['random', 'best'],
+    'min_samples_split': [2, 4, 8, 16, 32, 50, 100],
+    'max_depth': [None, 2, 4, 10, 50, 30, 100],
+    'min_samples_leaf': [1, 2, 4, 10, 20, 50, 100],
+    'max_leaf_nodes': [None, 2, 4, 10, 20, 50, 100]
+    }
+search = GridSearchCV(tree, param_grid, n_jobs=4, cv=5)
+search.fit(features_train, labels_train)
 
-clf = classify(features_train, labels_train)
+print(search.best_params_)
+# print(search.best_score_)
+clf = search.best_estimator_
 
-
-
-# store your predictions in a list named pred
-# pred = clf.predict(features_test)
-# acc = accuracy_score(pred, labels_test)
 acc = clf.score(features_test, labels_test)
 
 def submitAccuracy():
