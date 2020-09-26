@@ -4,7 +4,7 @@
 import warnings
 warnings.filterwarnings("ignore")
 
-import matplotlib 
+import matplotlib
 matplotlib.use('agg')
 
 import matplotlib.pyplot as plt
@@ -15,7 +15,7 @@ import numpy as np
 #import matplotlib.pyplot as plt
 #plt.ioff()
 
-def prettyPicture(clf, X_test, y_test):
+def prettyPicture(clf, X_test, y_test, name='test', title=''):
     x_min = 0.0; x_max = 1.0
     y_min = 0.0; y_max = 1.0
 
@@ -43,9 +43,10 @@ def prettyPicture(clf, X_test, y_test):
     plt.legend()
     plt.xlabel("bumpiness")
     plt.ylabel("grade")
+    plt.title(title)
 
-    plt.savefig("test.png")
-    
+    plt.savefig(f'{name}.png')
+
 import base64
 import json
 import subprocess
@@ -53,5 +54,5 @@ import subprocess
 def output_image(image_path):
     from PIL import Image
     with Image.open(image_path) as img:
-        img.show()
+        img.show(title=image_path)
 
