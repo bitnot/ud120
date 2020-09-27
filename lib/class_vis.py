@@ -27,6 +27,7 @@ def prettyPicture(clf, X_test, y_test, name='test', title=''):
 
     # Put the result into a color plot
     Z = Z.reshape(xx.shape)
+    plt.clf()
     plt.xlim(xx.min(), xx.max())
     plt.ylim(yy.min(), yy.max())
 
